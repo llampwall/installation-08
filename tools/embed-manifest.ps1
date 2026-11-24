@@ -34,7 +34,7 @@ if (Test-Path $kitsBin) {
         Sort-Object Name -Descending |
         ForEach-Object { Join-Path $_.FullName 'x64\mt.exe' } |
         Where-Object { Test-Path $_ }
-    if ($candidates) { $mt = $candidates[0] }
+    if ($candidates) { $mt = @($candidates)[0] }
 }
 if (-not $mt) { throw 'mt.exe was not found in a Windows Kits 10 SDK' }
 
